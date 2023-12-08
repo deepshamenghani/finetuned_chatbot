@@ -25,11 +25,9 @@ while True:
     # Before sending the inputted question to the api for answer, we will append it with the instruction so the bot knows what persona to use while answering the question.
     conversationarray.append({"role": "system","content": inputquestion})
 
-    # Request gpt-3.5-turbo for chat completion or a response
+    # Request fine tuned model for chat completion or a response
     response = client.chat.completions.create(
-        # model=os.getenv('MODEL_ID'),
-        # model=os.getenv('MODEL2_ID'),
-        model=os.getenv('MODEL3_ID'),
+        model=os.getenv('MODEL_ID'),
         messages=conversationarray,
         temperature=0
     )
